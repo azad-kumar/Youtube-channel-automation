@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>link</title>
+</head>
+
+<body>
+    <h1>Paste Instagram Link Below :</h1>
+    <form method="post" action="{% url 'add_link' %}">
+        {% csrf_token %}
+        <label for="input_text">Input Text:</label>
+        <input type="text" id="input_text" name="insta_link" required>
+        <br>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <br>
+
+
+    <div>
+        <form action="{% url 'download_remaining' %}" method="get">
+            Download Remaining Video 
+                <button id="download_video_button">download</button>
+        </form>
+    </div>
+    <div>
+        <form action="{% url 'view_remaining' %}" method="get">
+            View Remaining Count 
+                <button id="download_video_button">View</button>
+        </form>
+    </div>
+    
+
+</body>
+
+</html>
+<style>
+    #input_text {
+        height: 20px;
+        width: 300px;
+    }
+
+    #submit,
+    #download_video_button {
+        margin-top: 20px;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    #download_video_button {
+        background-color: lightgreen;
+    }
+
+    #submit,
+    #download_video_button:hover {
+        cursor: pointer;
+    }
+
+    #lownumber {
+        color: red;
+        font-size: 20px;
+    }
+
+    #highnumber {
+        color: green;
+        font-size: 20px;
+    }
+
+    /* You can add your custom styles here */
+</style>
